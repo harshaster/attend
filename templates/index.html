@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</head>
+<body class="bg-secondary">
+    <div class="container">
+        <div class="row mt-3 rounded-2 shadow bg-white p-4 d-flex mx-2 mx-sm-0 justify-content-center">
+            {% if step==1 %}
+            <div class="mb-3 form-group col-xs-12">
+                <form action="/", method="post">
+                    <label class="form-label fs-3 lead" for="roll">Enter your roll number : </label>
+                    <input style="width:100%" class="input-control fs-2 lead fw-bold" aria-describedby="rollhelp" type="number" name="roll" id="roll" required>
+                    <div id="rollhelp" class="form-text">Make sure you enter YOUR correct roll number !</div>
+                    <input type="submit" class="btn btn-primary mt-1" value="Submit">
+                </form>
+            </div>
+            
+            {% endif %}
+
+            {% if step==2 %}
+            <div class="mb-3 form-group col-xs-12">
+                <form action="/done", method="post">
+                    <div class="fs-3 lead">Is following information correct about you?</div>
+                    <div class="text-center p-2">
+                        <div><span class="text-muted">Name : </span>{{ name }}</div>
+                        <div><span class="text-muted">Roll No. : </span>{{ roll }}</div>
+                        <input type="hidden" name="roll" id="roll" value="{{roll}}">
+                        <div><span class="text-muted">Course : </span>{{ course }}</div>
+                        <div><span class="text-muted">Year : </span>{{ year }}</div>
+                        <br>
+                        <input type="submit" class="btn btn-success w-25" value="Yes">
+                        <a class="btn btn-danger w-25" href="/">No</a>
+                    </div>
+                </form>
+            </div>
+            
+        {% endif %}
+        </div>
+        
+    </div>
+    {
+<script>
+
+</script>
+</body>
+</html>
